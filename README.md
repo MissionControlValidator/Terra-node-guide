@@ -1,7 +1,12 @@
 # Terra-node-guide
+In this guide we will go through every step to easily set up a Terra node. 
+First of all you need to know the system requirements:
+  * 2 or more CPU cores
+  * At least 1TB of disk storage (SSDs are strongly recommended)
+  * At least 16GB of memory
+  * At least 100mbps network bandwidth****
+#
 # How to setup a Terra node
-
-
 ## 1) Update OS
 
 Update everything with:
@@ -9,8 +14,9 @@ Update everything with:
 sudo apt-get update
 sudo apt-get upgrade -y
 ```
-
+#
 ## 2) Setup the firewall
+
 Open ports `26656` and `ssh`, then enable the firewall:
 ```bash
 sudo ufw allow ssh
@@ -25,7 +31,7 @@ enable firewall:
 ```bash
 sudo ufw enable
 ```
-
+#
 ## 3) Install Terra Core
 Download the repository:
 ```bash
@@ -51,7 +57,7 @@ Expected output:
 ```bash
 0.4.6
 ```
-
+#
 ## 4) Download genesis and quicksync
 Create all the necessary files, change **{MONIKER}** with a custom moniker
 ```bash
@@ -78,7 +84,7 @@ cd ~/.terrad
 lz4 -d {FILENAME}   | tar xf -
 ```
 > Now you can delete the quicksynck file with `rm {FILENAME}  `
-
+#
 ## 5) Edit the config
 Edit the `config.toml` file:
 ```bash
@@ -106,7 +112,7 @@ Run `terrad`:
 cd ~
 terrad start
 ```
-
+#
 ## 6) Setup pm2 process manager
 Install `npm`, `nodejs` and `pm2`:
 ```bash
@@ -135,7 +141,7 @@ and put in the following content:
 ```js
 module.exports = { apps : [ { name: "terra-node", script: "runNode.sh", exec_mode: "fork", exec_interpreter: "bash"} ] }
 ```
-
+#
 ## 7) Run terrad with pm2
 Run terrad with pm2 process manager
 ```bash
@@ -156,7 +162,7 @@ Check the logs:
 pm2 logs 0
 ```
 Use  `ctrl` + `c` to exit from the log view
-
+#
 ## 8) Wait untill the node is sincronyzed 
 Wait a few hours, you can check the node status using:
 ```bash
