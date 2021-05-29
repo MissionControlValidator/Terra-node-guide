@@ -4,7 +4,7 @@ First of all you need to know the system requirements:
   * 2 or more CPU cores
   * At least 1TB of disk storage (SSDs are strongly recommended)
   * At least 16GB of memory
-  * At least 100mbps network bandwidth****
+  * At least 100mbps network bandwidth
 #
 # How to setup a Terra node
 ## 1) Update OS
